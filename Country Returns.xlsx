@@ -1,0 +1,18 @@
+import yfinance as yf
+import ffn
+import csv
+import xlsxwriter
+import pandas as pd
+
+prices = ffn.get('ewa,efnl,ephe,argt,ksa,enzl,vnm,gxc,norw,gxg,egpt,eden,eusa,eirl,ewh,ewg,ewl,ewn,idx,ews,ewm,epol,ewi,nge,ewp,eww,ewd,eis,inda,epu,eza,ewc,ech,ewz,ewt,ewj,tur,ewk,grek,ewu,pak,thd,ewy,ewh',start='2015-01-01')
+
+returns = prices.to_log_returns().dropna()
+
+df = pd.DataFrame(returns)
+
+df.to_excel("output.xlsx")
+
+
+
+
+
